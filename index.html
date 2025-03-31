@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Բնագիտության նախագիծ</title>
+    <style>
+        /* Ստեղծում ենք flex կոնտեյներ, որպեսզի նկարները լինեն կողք կողքի */
+        .fruits {
+            display: flex;
+            justify-content: center; /* Տեղադրում է կենտրոնում */
+            gap: 20px; /* Տարածություն նկարների միջև */
+        }
+
+        /* Յուրաքանչյուր պտղի բլոկ */
+        .fruit {
+            text-align: center; /* Անունը լինի նկարի տակ և կենտրոնում */
+        }
+
+        img {
+            width: 100px;
+            cursor: pointer; /* Սեղմելու նշան */
+            display: block; /* Նկարը կդառնա block, որպեսզի p-ն լինի դրա տակ */
+            margin: 0 auto; /* Կենտրոնացնում է նկարը */
+        }
+
+        p {
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Բնության իրականություները</h1>
+    <P>Բարև ձեզ այսօր մենք կպատմենք բնության իրական փաստերը մասին ,որը ժամանակին ձեզ շատ պետք է գալու։
+    </P>
+
+    <div class="fruits">
+        <div class="fruit">
+            <img src="https://bidfortrip.com/uploads/0000/83/2021/02/19/hiking-flowers-green-house-6.jpg" onclick="openFile('lemon.html')" alt="Լիմոն">
+            <p>ինչպես խնամել ծաղիկը ճիշտ</p>
+        </div>
+
+        <div class="fruit">
+            <img src="https://bidfortrip.com/uploads/0000/83/2021/02/19/hiking-flowers-green-house-2.jpg" onclick="openFile('apple.html')" alt="Խնձոր">
+            <p>ինչպես ճիշտ ջրել որպեսի ծաղիկները չթոռոմեն</p>
+        </div>
+
+        <div class="fruit">
+            <img src="https://bidfortrip.com/uploads/0000/83/2021/02/19/hiking-flowers-green-house-3.jpg" onclick="openFile('banana.html')" alt="Բանան">
+            <p>Որ հողի վրա ավելի լավ աճացնել ծաղիկը</p>
+        </div>
+
+        <div class="fruit">
+            <img src="https://bidfortrip.com/uploads/0000/83/2021/02/19/hiking-flowers-green-house-4.jpg" onclick="openFile('grape.html')" alt="Խաղող">
+            <p>Ծաղկի սնունդը</p>
+        </div>
+
+        <div class="fruit">
+            <img src="https://bidfortrip.com/uploads/0000/83/2021/02/19/hiking-flowers-green-house-1.jpg" onclick="openFile('orange.html')" alt="Նարինջ">
+            <p>Երբ ճիշտ կտրել ծաղիկը որպեսզի ծաղիկը չկորցնել
+
+            </p>
+        </div>
+    </div>
+
+
+        
+            <Script>
+                function openFile(file) {
+                    window.location.href = file; // Բացում է տեղական ֆայլը նույն էջում
+                }
+            </Script>
+       
+        
+    
+
+</body>
+</html>
