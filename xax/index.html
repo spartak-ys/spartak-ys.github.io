@@ -91,9 +91,10 @@
 
     function moveBullets() {
       for (let bullet of bullets) {
-        bullet.y++;
+        bullet.x += bullet.dx;
+        bullet.y += bullet.dy;
       }
-      bullets = bullets.filter(b => b.y < gridSize);
+      bullets = bullets.filter(b => b.y < gridSize && b.x >= 0 && b.x < gridSize);
     }
 
     function checkHits() {
@@ -106,7 +107,7 @@
               scoreText.textContent += " | Դու հաղթեցիր։ Խաղը ավարտվեց։";
               gameOver = true;
             }
-            return false; // հեռացնում ենք այս փամփուշտը
+            return false;
           } else {
             alert("Դու մահացար։ Բոսսի փամփուշտը դիպավ քեզ։");
             location.reload();
@@ -120,7 +121,22 @@
     function shoot() {
       tick++;
       const type = tick % 5 === 0 ? "green" : "purple";
-      bullets.push({ x: boss.x, y: boss.y + 1, type });
+
+      const directions = [
+        { dx: 0, dy: 1 },   // ներքև
+        { dx: -1, dy: 1 },  // ձախ-ներքև
+        { dx: 1, dy: 1 }    // աջ-ներքև
+      ];
+
+      for (let dir of directions) {
+        bullets.push({
+          x: boss.x,
+          y: boss.y + 1,
+          dx: dir.dx,
+          dy: dir.dy,
+          type
+        });
+      }
     }
 
     document.addEventListener("keydown", (e) => {
