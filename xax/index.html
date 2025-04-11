@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <title>Փուլ 2 - Բոսսի Պայքարը</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    #game {
+      display: grid;
+      grid-template-columns: repeat(12, 40px);
+      grid-template-rows: repeat(12, 40px);
+      gap: 2px;
+      margin: 20px auto;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background-color: lightgray;
+      border: 1px solid #ccc;
+    }
+
+    .player {
+      background-color: red;
+    }
+
+    .boss {
+      background-color: purple;
+    }
+
+    .bullet {
+      background-color: violet;
+    }
+
+    .green-bullet {
+      background-color: green;
+    }
+
+    #score {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Ռաունդ 2</h2>
+  <div id="score">Միավորներ: 0</div>
+  <div id="game"></div>
+
+  <script>
+    const gridSize = 12;
+    const game = document.getElementById("game");
+    const scoreText = document.getElementById("score");
+
+    let player = { x: 5, y: 11 };
+    let boss = { x: 5, y: 0 };
+    let bullets = [];
+    let greenTouches = 0;
+    let tick = 0;
+    let gameOver = false;
+
+    function drawGame() {
+      game.innerHTML = "";
+      for (let y = 0; y < gridSize; y++) {
+        for (let x = 0; x < gridSize; x++) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+
+          if (x === player.x && y === player.y) {
+            cell.classList.add("player");
+          } else if (x === boss.x && y === boss.y && !gameOver) {
+            cell.classList.add("boss");
+          } else {
+            for (let b of bullets) {
+              if (b.x === x && b.y === y) {
+                cell.classList.add(b.type === "green" ? "green-bullet" : "bullet");
+              }
+            }
+          }
+
+          game.appendChild(cell);
+        }
+      }
+    }
+
+    function moveBullets() {
+      for (let bullet of bullets) {
+        bullet.y++;
+      }
+      bullets = bullets.filter(b => b.y < gridSize);
+    }
+
+    function checkHits() {
+      bullets = bullets.filter(b => {
+        if (b.x === player.x && b.y === player.y) {
+          if (b.type === "green") {
+            greenTouches++;
+            scoreText.textContent = `Միավորներ: ${greenTouches}`;
+            if (greenTouches >= 3) {
+              scoreText.textContent += " | Դու հաղթեցիր։ Խաղը ավարտվեց։";
+              gameOver = true;
+            }
+            return false; // հեռացնում ենք այս փամփուշտը
+          } else {
+            alert("Դու մահացար։ Բոսսի փամփուշտը դիպավ քեզ։");
+            location.reload();
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    function shoot() {
+      tick++;
+      const type = tick % 5 === 0 ? "green" : "purple";
+      bullets.push({ x: boss.x, y: boss.y + 1, type });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (gameOver) return;
+      if (e.key === "ArrowLeft" && player.x > 0) player.x--;
+      if (e.key === "ArrowRight" && player.x < gridSize - 1) player.x++;
+      if (e.key === "ArrowUp" && player.y > 0) player.y--;
+      if (e.key === "ArrowDown" && player.y < gridSize - 1) player.y++;
+      drawGame();
+    });
+
+    function gameLoop() {
+      if (gameOver) return;
+      shoot();
+      moveBullets();
+      checkHits();
+      drawGame();
+    }
+
+    setInterval(gameLoop, 400);
+    drawGame();
+  </script>
+
+</body>
+</html>
