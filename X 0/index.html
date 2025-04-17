@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartak's X 0 Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      font-size: 2.5em;
+      background-color: #fff;
+      border: 2px solid #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+    }
+
+    .cell:hover {
+      background-color: #e0f0ff;
+    }
+
+    #status {
+      font-size: 1.5em;
+      margin-top: 15px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spartak's X 0 Game</h1>
+
+  <div class="buttons">
+    <button onclick="startGame('pvp')">Խաղալ ընկերոջ հետ</button>
+    <button onclick="startGame('cpu')">Խաղալ համակարգչի դեմ</button>
+  </div>
+
+  <div class="board" id="board"></div>
+  <div id="status"></div>
+  <button onclick="resetGame()">Նոր խաղ</button>
+
+  <script>
+    const board = document.getElementById('board');
+    const status = document.getElementById('status');
+    let currentPlayer = 'X';
+    let gameActive = false;
+    let mode = 'pvp'; // default is player vs player
+    const cells = [];
+
+    function startGame(selectedMode) {
+      mode = selectedMode;
+      currentPlayer = 'X';
+      gameActive = true;
+      status.textContent = 'X-ի հերթն է';
+      createBoard();
+    }
+
+    function createBoard() {
+      board.innerHTML = '';
+      cells.length = 0;
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.addEventListener('click', () => cellClick(i));
+        board.appendChild(cell);
+        cells.push('');
+      }
+    }
+
+    function cellClick(index) {
+      if (!gameActive || cells[index] !== '') return;
+
+      if (mode === 'pvp') {
+        playMove(index);
+      } else if (mode === 'cpu' && currentPlayer === 'X') {
+        playMove(index);
+        if (gameActive) {
+          setTimeout(computerMove, 500); // computer plays after short delay
+        }
+      }
+    }
+
+    function playMove(index) {
+      cells[index] = currentPlayer;
+      board.children[index].textContent = currentPlayer;
+
+      if (checkWinner()) {
+        status.textContent = `${currentPlayer} հաղթեց խաղը!`;
+        gameActive = false;
+      } else if (cells.every(cell => cell !== '')) {
+        status.textContent = 'Ոչ-ոքի!';
+        gameActive = false;
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        status.textContent = `${currentPlayer}-ի հերթն է`;
+      }
+    }
+
+    function computerMove() {
+      if (!gameActive) return;
+      
+      // Check if computer can win
+      let move = findBestMove('O');
+      if (move === -1) {
+        // If computer can't win, check for the best move to block the player
+        move = findBestMove('X');
+      }
+      
+      playMove(move);
+    }
+
+    function findBestMove(player) {
+      const emptyCells = cells.map((val, i) => val === '' ? i : null).filter(i => i !== null);
+      let bestScore = -Infinity;
+      let bestMove = -1;
+      
+      emptyCells.forEach(cell => {
+        cells[cell] = player;
+        let score = minimax(cells, 0, false);
+        cells[cell] = ''; // restore the board
+        if (score > bestScore) {
+          bestScore = score;
+          bestMove = cell;
+        }
+      });
+      
+  return bestMove;
+}
+
+function minimax(board, depth, isMaximizingPlayer) {
+  let winner = checkWinner();
+  if (winner === 'O') return 1;
+  if (winner === 'X') return -1;
+  if (board.every(cell => cell !== '')) return 0;
+
+  if (isMaximizingPlayer) {
+    let best = -Infinity;
+    for (let i = 0; i < 9; i++) {
+      if (board[i] === '') {
+        board[i] = 'O';
+        best = Math.max(best, minimax(board, depth + 1, false));
+        board[i] = '';
+      }
+    }
+    return best;
+  } else {
+    let best = Infinity;
+    for (let i = 0; i < 9; i++) {
+      if (board[i] === '') {
+        board[i] = 'X';
+        best = Math.min(best, minimax(board, depth + 1, true));
+        board[i] = '';
+      }
+    }
+    return best;
+  }
+}
+
+function checkWinner() {
+  const winPatterns = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+  return winPatterns.some(pattern => {
+    const [a, b, c] = pattern;
+    return cells[a] && cells[a] === cells[b] && cells[a] === cells[c];
+  });
+}
+
+function resetGame() {
+  currentPlayer = 'X';
+  gameActive = true;
+  status.textContent = 'X-ի հերթն է';
+  createBoard();
+}
+  </script>
+</body>
+</html>
+        
