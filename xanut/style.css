@@ -1,0 +1,82 @@
+.nkar1{
+    height: 200px;
+    width: 200px;
+    margin: 0, 20px, 20px, 20px;
+    float: left;
+   
+}
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.span2{
+    display: flex;
+    margin-left: 50px ;
+    align-items: center;
+    flex-flow: column nowrap;
+    
+}
+body{
+    background-color: wheat;
+}
+.h11{
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+
+}
+
+.header1{
+    background-color: rgb(231, 156, 105);
+}
+
+.h21{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+nav{
+    background-color: gold;
+    height: 20px;
+    width: 100%;
+}
+
+nav > a{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.span1{
+    float: left;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer > p{
+   
+        display: flex;
+        align-items: center;
+        flex-flow: column nowrap;
+        
+    
+
+        
+}
+
+footer{
+   height: 50px ; 
+   width: 100%;  
+   background-color:rgb(231, 156, 105); 
+   margin-top: 50px;     
+}
+
+
+
+
