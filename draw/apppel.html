@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Նկարիր օնլայն</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    canvas {
+      border: 1px solid #000;
+      cursor: crosshair;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .toolbar {
+      margin-bottom: 10px;
+    }
+
+    button:focus,
+    button:active {
+      outline: none;
+      box-shadow: none;
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2> drawing online 🖌️</h2>
+
+  <div class="toolbar">
+    color:
+    <input type="color" id="colorPicker" value="#000000">
+    line:
+    <input type="range" id="lineWidth" min="1" max="10" value="2">
+    <button id="clearBtn">clear</button>
+    <button id="downloadBtn">download</button>
+  </div>
+
+  <canvas id="canvas" width="800" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    // Սկսել նկարել
+    canvas.addEventListener('mousedown', (e) => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    // Դադարեցնել նկարելը
+    canvas.addEventListener('mouseup', () => {
+      drawing = false;
+      ctx.beginPath(); // նոր գիծ սկսի հաջորդ անգամ
+    });
+
+    // Նկարչության գործընթաց
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!drawing) return;
+
+      ctx.lineWidth = document.getElementById('lineWidth').value;
+      ctx.strokeStyle = document.getElementById('colorPicker').value;
+      ctx.lineCap = 'round';
+
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    }
+
+    // Մաքրել նկարը
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Ներբեռնել նկարը
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'draw.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  </script>
+</body>
+</html>
