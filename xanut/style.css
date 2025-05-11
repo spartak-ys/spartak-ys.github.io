@@ -1,80 +1,112 @@
-.nkar1{
-    height: 200px;
-    width: 200px;
-    margin: 0, 20px, 20px, 20px;
-    float: left;
-   
-}
-*{
-    margin: 0;
-    padding: 0;
-
-}
-.span2{
-    display: flex;
-    margin-left: 50px ;
-    align-items: center;
-    flex-flow: column nowrap;
-    
-}
-body{
-    background-color: wheat;
-}
-.h11{
-    display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-
+/* Հիմնական կարգավորումներ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.header1{
-    background-color: rgb(231, 156, 105);
+body {
+  background-color: wheat;
+  font-family: Arial, sans-serif;
 }
 
-.h21{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    margin-top: 20px;
+.header1 {
+  background-color: rgb(231, 156, 105);
+  padding: 20px;
+  text-align: center;
 }
 
-
-nav{
-    background-color: gold;
-    height: 20px;
-    width: 100%;
+.h11 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-nav > a{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+nav {
+  background-color: gold;
+  padding: 10px;
+  text-align: center;
 }
 
-.span1{
-    float: left;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    margin-bottom: 20px;
+nav > a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
-footer > p{
-   
-        display: flex;
-        align-items: center;
-        flex-flow: column nowrap;
-        
-    
-
-        
+.nkar1 {
+  width: 100%;
+  max-width: 200px;
+  height: auto; /* Սա թույլ կտա պահպանել համաչափությունը */
+  margin: 0 auto 20px auto; /* Կենտրոնացնում ենք */
+  display: block;
 }
 
-footer{
-   height: 50px ; 
-   width: 100%;  
-   background-color:rgb(231, 156, 105); 
-   margin-top: 50px;     
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center; /* Կենտրոնացնում ենք տարրերը */
+}
+
+.span1 {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.h21 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.span2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.span2 a {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.span2 a:hover {
+  background-color: #c0392b;
+}
+
+footer {
+  background-color: rgb(231, 156, 105);
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Պլանշետների համար */
+@media (min-width: 600px) {
+  .span2 {
+    gap: 15px;
+  }
+
+  .nkar1 {
+    max-width: 150px;
+  }
+}
+
+/* Համակարգիչների համար */
+@media (min-width: 1024px) {
+  .span2 {
+    gap: 20px;
+  }
+
+  .nkar1 {
+    max-width: 200px;
+  }
 }
 
 
