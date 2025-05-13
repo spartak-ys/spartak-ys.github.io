@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մոգական քառակուսի 3x3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #87cefa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="magicSquare"></div>
+
+<script>
+    function createMagicSquare(n) {
+        let square = Array.from({ length: n }, () => Array(n).fill(0));
+        let row = 0;
+        let col = Math.floor(n / 2);
+        square[row][col] = 1;
+
+        for (let num = 2; num <= n * n; num++) {
+            let newRow = (row - 1 + n) % n;
+            let newCol = (col + 1) % n;
+
+            if (square[newRow][newCol] !== 0) {
+                row = (row + 1) % n;
+            } else {
+                row = newRow;
+                col = newCol;
+            }
+
+            square[row][col] = num;
+        }
+
+        return square;
+    }
+
+    function renderMagicSquare(square) {
+        const container = document.getElementById("magicSquare");
+        container.innerHTML = "";
+        square.forEach(row => {
+            row.forEach(cell => {
+                const div = document.createElement("div");
+                div.className = "cell";
+                div.textContent = cell;
+                container.appendChild(div);
+            });
+        });
+    }
+
+    const magicSquare = createMagicSquare(3);
+    renderMagicSquare(magicSquare);
+</script>
+
+</body>
+</html>
