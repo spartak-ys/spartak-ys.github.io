@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+:root{
+    --br: 6px;
+    --gray: #3c3c48;
+    --gray2: #202126;
+}
+
+body{
+    background: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 450px;
+    background: var(--gray2) ;
+    border-radius: var(--br);
+    position: relative;
+    padding: 20px;
+}
+.container .app-name{
+    color: white;
+    padding: 20px;
+    font-size: 17px;
+    box-shadow: rgba(0,0,0,0.10) 0px 10px 20px, rgba(0,0,0,0.23) 0px 6px;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: var(--br);
+}
+.container .app-name h1{
+    font-size: 17px;
+    text-align: center;
+}
+.container .password-box{
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: var(--br);
+}
+.container .password-box input{
+    all: unset;
+    height: 50px;
+    width: 85%;
+    border-radius: var(--br);
+    padding-left: 15px;
+    color: #fff;
+}
+.container .password-box i{
+    color: #fff;
+    cursor: pointer;
+}
+.container .indicator-box{
+    margin: 16px 0px;
+    height: 6px;
+    position: relative;
+    z-index: 1;
+}
+.container .indicator-box div:nth-child(1){
+    top: 0;
+    height: 3px;
+    width: 100%;
+    background: #777;
+    border-radius: 30px;
+    position: absolute;
+}
+.container .indicator-box div:nth-child(2){
+    height: 3px;
+    width: 35%;
+    background: #f00;
+    position: absolute;
+    top: 0;
+    border-radius: 30px;
+    transition: all .2s;
+}
+.container .password-length-box{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+.container .password-length-box input{
+    all: unset;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    border-radius: 30px;
+    margin-top: 16px;
+}
+.container .password-length-box input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: var(--gray);
+    cursor: grab;
+    border: 5px solid var(--gray2);
+    box-shadow: rgba(0,0,0,0.10) 0px 10px 20px, rgba(0,0,0,0.23) 0px 6px;
+
+    }
+.container .password-length-box span{
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.container .password-length-box .password-length-value{
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.password-settings{
+    position: relative;
+}
+.password-settings .pass-setting-title{
+    margin-bottom: 16px;
+}
+
+.settings{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 32px;
+    margin: 32px 0px;
+}
+.container .pass-setting-title{
+    color: #fff ;
+    font-size: 17px;
+}
+
+
+.settings div{
+    height: 25px;
+    flex-basis: 45%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+settings .lowercase label #lowercase {
+    pointer-events: none;
+}
+.generate-btn{
+    border:  none;
+    background: #5a5;
+    padding: 8px 16px;
+    color: #fff;
+    border-radius: var(--br);
+    cursor: pointer;
+}
+
+.container .indicator-box .indicator#weak {
+    background: #f00;
+    width: 35%;
+}
+
+.container .indicator-box .indicator#medium{
+    background: #ff0;
+    width: 70%;
+}
+
+.container .indicator-box .indicator#strong{
+    background: #0f0;
+    width: 100%;
+}
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body> 
+    <div class="container">
+        <div class="app-name">
+            <h1>Password Generator</h1>
+        </div>
+
+        <div class="password-box">
+            <input type="text" class="pass-value" value="j@K9s!" readonly>
+           <i class="fa fa-clone" id="copy-btn"></i>
+          </div>
+
+        <div class="indicator-box">
+            <div></div>
+            <div class="indicator"></div>
+        </div>
+
+        <div class="password-settings">
+            <h2 class="pass-setting-title">Password Settings</h2>
+        <div class="password-length-box">
+            <span>Password Length</span>
+            <span class="password-length-value">6</span>
+            <input type="range" class="pass-slider" min="6" max="32" value="6">
+
+        </div>
+        </div>
+        <div class="settings">
+            <div class="lowercase">
+                <label >
+                    <input type="checkbox" id="lowercase" checked disabled>
+                    <span>Lowercase (a-z)</span>
+                </label>
+            </div>
+            <div class="uppercase">
+                <label>
+                <input type="checkbox" id="uppercase" checked>
+                <span>Uppercase (A-Z)</span>
+            </label>
+            </div>
+            <div class="numbers">
+                <label>
+                <input type="checkbox" id="numbers" checked>
+                <span>Number (0-9) </span>
+                </label>
+            </div>
+            <div class="symbols">
+                <label >
+                    <input type="checkbox" id="symbols" checked>
+                <span>Symbols (@#$%&-)</span>
+                </label>
+            </div>
+            <button class="generate-btn">Generate Password</button>
+    
+        </div>
+
+    
+
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+</html>
