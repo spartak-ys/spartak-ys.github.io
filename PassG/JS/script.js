@@ -14,10 +14,6 @@ const values = {
     symbols: "!@#$%^&(*)-+/></;:,{[]}="
 };
 
-lowercaseCheck.addEventListener("change", (e) => {
-    lowercaseCheck.target.setAttrribute("checked", "")
-});
-
 function generatePassword (){
     let strongPassword = "";
     let randomPassword = "";
