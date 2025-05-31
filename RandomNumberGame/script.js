@@ -2,7 +2,7 @@ var input = document.getElementById("input");
 var button = document.getElementById("button");
 var patasxan = document.getElementById("patasxan");
 
-let rn = Math.floor(Math.random()*10);
+let rn = Math.floor(Math.random()*9)+1;
 console.log(rn);
 
 button.addEventListener("click", function(){
