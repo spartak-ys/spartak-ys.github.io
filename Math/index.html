@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Մաթեմ Քվիզ</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .option {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      width: 200px;
+      font-size: 18px;
+    }
+    #nextBtn, #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Մաթեմատիկայի Խաղ</h1>
+  <div id="question"></div>
+  <div id="options"></div>
+  <button id="nextBtn" onclick="nextQuestion()" disabled>➡️ Հաջորդը</button>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      { q: "16 7/9 − 4 1/9 =", options: ["11 3/9", "20 8/9", "12 7/9"], correct: 2 },
+      { q: "12 5/8 − 1 5/16=", options: ["11 5/16", "13 15/16", "11 13/16"], correct: 0 },
+      { q: "11 3/8 − 1 1/4=", options: ["10 1/8", "12 5/8", "9 8/7"], correct: 0 },
+      { q: "10 3/7 − 9 4/5=", options: ["1 13/35", "22/35", "20 8/35"], correct: 1 }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let selected = null;
+
+    function showQuestion() {
+      const q = questions[current];
+      document.getElementById("question").innerText = q.q;
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.className = "option";
+        btn.onclick = () => {
+          selected = index;
+          document.querySelectorAll(".option").forEach(b => b.disabled = true);
+          if (index === q.correct) {
+            score++;
+            btn.style.backgroundColor = "lightgreen";
+          } else {
+            btn.style.backgroundColor = "tomato";
+          }
+          document.getElementById("nextBtn").disabled = false;
+        };
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function nextQuestion() {
+      current++;
+      selected = null;
+      document.getElementById("nextBtn").disabled = true;
+
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById("question").style.display = "none";
+      document.getElementById("options").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+      document.getElementById("result").innerText = `✅ Դու ճիշտ ես պատասխանել ${score} / ${questions.length} հարցերին։`;
+    }
+
+    showQuestion();
+  </script>
+
+</body>
+</html>
