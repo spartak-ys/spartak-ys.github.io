@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contener{
+    background: gray;
+    width: 200px;
+    height: 135px;
+}
+
+*{
+    border-radius: 6px;
+    margin: 6px;
+}
+
+p, input, button, div {
+    margin-left: 6px;
+}
+
+button{
+    background: gray;
+    color: white;
+    border: white, solid, 1px;
+}
+
+input{
+    background: gray;
+    border: white, solid, 1px;
+    color: white;
+}
