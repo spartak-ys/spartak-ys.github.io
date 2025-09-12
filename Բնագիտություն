@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Բնության իրականություները — նոր ոճ</title>
+  <meta name="description" content="Ծաղկատուն, խնամք, և հետաքրքիր հոդվածներ (նոր, մաքուր ոճ)" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fbfdfb;
+      --card: #ffffff;
+      --muted: #65707a;
+      --accent: #2b7a57; /* հիմնական գույնը — փոխիր ըստ ճաշակի */
+      --accent-2: #7abf9e;
+      --glass: rgba(255,255,255,0.6);
+      --radius: 12px;
+      --maxw: 1100px;
+      --shadow: 0 6px 18px rgba(15,20,25,0.08);
+      font-size: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg), #f1f7f3 120%);
+      color:#132226;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 18px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{width:100%;max-width:var(--maxw);}
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      display:inline-grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow);
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px;font-weight:600;font-size:14px}
+    nav a.button{
+      background:var(--card); box-shadow:var(--shadow); color:var(--accent); padding:8px 12px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      align-items:start;
+      margin-bottom:26px;
+    }
+    .hero-card{
+      background:var(--card);
+      padding:22px;border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 8px 0;font-size:28px}
+    .hero p{margin:0;color:var(--muted);line-height:1.5}
+
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .card{
+      background:linear-gradient(180deg,var(--card), #fbffff);
+      border-radius:12px;overflow:hidden;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(15,20,25,0.12)}
+    .card img{width:100%;height:170px;object-fit:cover;display:block}
+    .card-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px;flex:1}
+    .meta{display:flex;justify-content:space-between;align-items:center;padding:12px;border-top:1px solid #eef4f2;font-size:13px;color:var(--muted)}
+    .btn{background:var(--accent);color:white;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600}
+
+    footer{text-align:center;color:var(--muted);font-size:14px;padding:18px 0}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* simple modal for images */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+      background:rgba(6,8,10,0.6);z-index:60;padding:16px;
+    }
+    .modal.open{display:flex}
+    .modal img{max-width:95%;max-height:90%;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">Բ</div>
+        <div>
+          <div style="font-weight:700">Բնության իրականություններ</div>
+          <div style="font-size:13px;color:var(--muted)">Քո բնագիտական բլոգը</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">Մեր մասին</a>
+        <a href="#articles">Հոդվածներ</a>
+        <a class="button" href="#contact">Կապ</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Ծաղիկներ, խնամք, և գիշերային գեղեցկուհիներ</h1>
+        <p>Հին ու նորը մեկ էջում։ Վերբեռնելով քեզ հետաքրքրող թեմաները՝ մենք կասենք, թե ինչպես ճիշտ խնամել ծաղիկները, ե՞րբ են բացվում գիշերային տեսակները և այլ հետաքրքիր փաստեր։ Չափազանց պարզ և աչքի ընկնող դիզայն՝ եկ՛եք սկսենք։</p>
+        <p style="margin-top:12px"><strong>Ուշադրություն.</strong> փոխիր գույները՝ CSS-ի վերևում գտնվող <code>--accent</code> և <code>--accent-2</code> փոփոխականներով։</p>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:12px">
+        <div class="hero-card">
+          <strong>Top 5 գիշերային ծաղիկներ</strong>
+          <ul style="margin:10px 0 0 16px;color:var(--muted)">
+            <li>Mirabilis jalapa — Գիշերային գեղեցկուհի</li>
+            <li>Cestrum nocturnum — Գիշերային թագուհի</li>
+            <li>Selenicereus grandiflorus — Գիշերաթագուհի կակտուս</li>
+            <li>Portulaca grandiflora — Ամառային ժամացույց</li>
+            <li>Oenothera biennis — Գիշերային primrose</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" style="display:flex;gap:10px;align-items:center">
+          <img src="https://via.placeholder.com/80x80?text=🌸" alt="icon" style="width:64px;height:64px;border-radius:10px;object-fit:cover">
+          <div>
+            <div style="font-weight:700">Պարզ և արագ</div>
+            <div style="color:var(--muted);font-size:13px">Խնդրի՞ ես: Պատասխանում եմ արագ և պարզ։</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Grid of articles / items -->
+    <section id="articles" class="grid">
+      <!-- Card 1: Mirabilis jalapa -->
+      <article class="card">
+        <img src="https://via.placeholder.com/800x450?text=Mirabilis+jalapa" alt="Mirabilis jalapa (Գիշերային գեղեցկուհի)" data-full="https://via.placeholder.com/1600x900?text=Mirabilis+jalapa">
+        <div class="card-body">
+          <h3>Գիշերային գեղեցկուհի — Mirabilis jalapa</h3>
+          <p>Բացվում է երեկոյան, պարզ խնամք, բազմագուն ծաղիկներ։ Կարելի է աճեցնել այգում կամ տարայով։</p>
+        </div>
+        <div class="meta">
+          <span>Ծաղիկներ • Խնամք</span>
+          <a class="btn" href="#read1">Կարդալ</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Cestrum nocturnum -->
+      <article class="card">
+        <img src="https://via.placeholder.com/800x450?text=Cestrum+nocturnum" alt="Cestrum nocturnum (Գիշերային թագուհի)" data-full="https://via.placeholder.com/1600x900?text=Cestrum+nocturnum">
+        <div class="card-body">
+          <h3>Գիշերային թագուհի — Cestrum nocturnum</h3>
+          <p>Բուրավետ թուրմեր՝ գիշերը, շատ լավ է այգու «գիշերային այգու» համար։</p>
+        </div>
+        <div class="meta">
+          <span>Բուրմունք • Աշխարհաբացում</span>
+          <a class="btn" href="#read2">Կարդալ</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Selenicereus grandiflorus -->
+      <article class="card">
+        <img src="https://via.placeholder.com/800x450?text=Selenicereus+grandiflorus" alt="Selenicereus grandiflorus (Գիշերաթագուհի կակտուս)" data-full="https://via.placeholder.com/1600x900?text=Selenicereus+grandiflorus">
+        <div class="card-body">
+          <h3>Գիշերաթագուհի կակտուս — Selenicereus</h3>
+          <p>Մեծ միանգամյա ծաղիկներ, բացվում են մեկ գիշերվա համար։ Հետաքրքիր տեսարան։</p>
+        </div>
+        <div class="meta">
+          <span>Կակտուս • Շատ մեծ</span>
+          <a class="btn" href="#read3">Կարդալ</a>
+        </div>
+      </article>
+
+      <!-- Card 4: Portulaca grandiflora -->
+      <article class="card">
+        <img src="https://via.placeholder.com/800x450?text=Portulaca+grandiflora" alt="Portulaca grandiflora (Ամառային ժամացույց)" data-full="https://via.placeholder.com/1600x900?text=Portulaca+grandiflora
