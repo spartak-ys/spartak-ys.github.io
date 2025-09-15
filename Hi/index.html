@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <title>Գիրք</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    #readBtn {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s;
+    }
+    #readBtn:hover {
+      background: #45a049;
+    }
+    #text {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 18px;
+      color: #444;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    #text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <h1>Իմ Գիրքը 📖</h1>
+  <button id="readBtn">Կարդալ</button>
+  <p id="text">Սա իմ գրքի առաջին հատվածն է։ Այստեղ պատմությունը սկսվում է հետաքրքիր դեպքերով...</p>
+
+  <script>
+    const btn = document.getElementById("readBtn");
+    const text = document.getElementById("text");
+
+    btn.addEventListener("click", () => {
+      text.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
