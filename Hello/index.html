@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <title>Ժամացույցային Ծաղիկներ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .flower {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px auto;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .flower h2 {
+      margin: 0;
+      color: #34495e;
+    }
+
+    .readBtn {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #27ae60;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .readBtn:hover {
+      background: #219150;
+    }
+
+    .flower-info {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    .flower-info.show {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .flower-info img {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ժամացույցային Ծաղիկներ 🌸⏰</h1>
+
+  <div class="flower">
+    <h2>Գիշերային գեղեցկուհի</h2>
+    <button class="readBtn">Կարդալ</button>
+    <div class="flower-info">
+      <p>Բացվում է երեկոյան 🌙✨ և ունի վառ գույներ։</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Mirabilis_jalapa_flower3.jpg" alt="Գիշերային գեղեցկուհի">
+    </div>
+  </div>
+
+  <div class="flower">
+    <h2>Գիշերային թագուհի</h2>
+    <button class="readBtn">Կարդալ</button>
+    <div class="flower-info">
+      <p>Բուրավետ ծաղիկ է, բացվում է գիշերը 🌌։</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Cestrum_nocturnum02.jpg" alt="Գիշերային թագուհի">
+    </div>
+  </div>
+
+  <div class="flower">
+    <h2>Գիշերաթագուհի կակտուս</h2>
+    <button class="readBtn">Կարդալ</button>
+    <div class="flower-info">
+      <p>Հայտնի է որպես «Մեկ գիշերվա թագուհի» 🌼🌙։</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Selenicereus_grandiflorus.jpg" alt="Գիշերաթագուհի կակտուս">
+    </div>
+  </div>
+
+  <div class="flower">
+    <h2>Ամառային ժամացույց</h2>
+    <button class="readBtn">Կարդալ</button>
+    <div class="flower-info">
+      <p>Ծաղկում է առավոտյան և փակվում երեկոյան ☀️⏳։</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Portulaca_grandiflora1.jpg" alt="Ամառային ժամացույց">
+    </div>
+  </div>
+
+  <div class="flower">
+    <h2>Ամառային գեղեցկուհի</h2>
+    <button class="readBtn">Կարդալ</button>
+    <div class="flower-info">
+      <p>Բացվում է մայրամուտին 🌅։</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Oenothera_biennis_flower2.jpg" alt="Ամառային գեղեցկուհի">
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".readBtn");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const info = btn.nextElementSibling;
+        info.classList.toggle("show");
+      });
+    });
+  </script>
+</body>
+</html>
