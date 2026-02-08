@@ -55,7 +55,7 @@ function patasxan6() {
 function patasxan7() {
     const patasxan7 = +document.getElementById("input7").value
 
-    if (patasxan7 === 48) {
+    if (patasxan7 === 72) {
         document.getElementById("result7").innerText = "Ճիշտ է";
     } else {
         document.getElementById("result7").innerText = "Սխալ է";
@@ -87,4 +87,5 @@ function patasxan10() {
     } else {
         document.getElementById("result10").innerText = "Սխալ է";
     }
+
 }          
