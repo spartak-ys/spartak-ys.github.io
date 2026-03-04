@@ -1,0 +1,27 @@
+img{
+    height: 300px;
+    width: 300px;
+    display: none;
+}
+span{
+    margin: 5px;
+}
+button{
+    border-radius: 30px;
+    border-color: navy;
+    background-color: rgb(0, 0, 255);
+    color: white;
+}
+body{
+    background: #0ac6ff;
+    color: white;
+}
+#right, #wrong, #draw{
+    font-size: 100px;
+    margin: 10px;
+    display: none;
+    line-height: 0;            
+    vertical-align: bottom;    
+    margin-bottom: 150px;
+}
+
