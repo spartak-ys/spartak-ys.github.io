@@ -1,4 +1,24 @@
 #input{
-    border-radius: 30px;
-    border-color: #1d0053;
+    background: gray;
+    border: white, solid, 1px;
+    color: white;
+}
+p, input, div {
+    margin-left: 6px;
+}
+body{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div{
+    background: gray;
+    width: 200px;
+    height: 135px;
+}
+*{
+    border-radius: 6px;
 }
