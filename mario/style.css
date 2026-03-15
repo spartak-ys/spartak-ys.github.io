@@ -1,0 +1,54 @@
+#glxak{ 
+  width: 30px;
+  height: 10px;
+  background: #f00;
+}
+
+#glux{
+  width: 30px;
+  height: 30px;
+  background: #f1c27d;
+}
+
+#por{
+  width: 10px;
+  height: 30px;
+  background: #f00;
+  margin-left: 10px;
+  position: relative;
+}
+
+#dzer1, #dzer2{
+  width: 20px;
+  height: 10px;
+  background: #f00;
+  position: absolute;
+  top: 10px;
+}
+
+#dzer1{
+  right: 10px;
+}
+
+#dzer2{
+  left: 10px;
+}
+
+#poriTak{
+  height: 10px;
+  width: 30px;
+  background: #f00;
+}
+
+#vot1, #vot2 {
+  width: 10px;
+  height: 30px;
+  background: #f00;
+  display: inline-block;
+}
+
+#vot2 {
+  margin-left: 6px;
+}
+
+
