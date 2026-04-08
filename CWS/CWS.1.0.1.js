@@ -23,6 +23,7 @@ const CWS = {
         for (let y = 0; y < sprite.img.length; y++) {
             for (let x = 0; x < sprite.img[y].length; x++) {
                 let value = sprite.img[y][x];
+                if(value != ""){
                 ctx.fillStyle = COLORS[value] || value;
                 ctx.fillRect(
                     x * sprite.size + sprite.x,
@@ -30,6 +31,7 @@ const CWS = {
                     sprite.size,
                     sprite.size
                 );
+            }
             }
         }
     },
