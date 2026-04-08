@@ -13,12 +13,10 @@ const COLORS = {
 };
 
 const CWS = {
-    // Create a sprite object
     createSprite: (img, size = 20, x = 0, y = 0) => {
         return { img, size, x, y };
     },
 
-    // Draw a single sprite
     drawSprite: (sprite, canvas) => {
         let ctx = canvas.getContext("2d");
 
@@ -36,20 +34,17 @@ const CWS = {
         }
     },
 
-    // Draw multiple sprites
     drawSprites: (sprites, canvas) => {
         sprites.forEach(sprite => {
             CWS.drawSprite(sprite, canvas);
         });
     },
 
-    // Move a sprite by dx, dy
     moveSprite: (sprite, dx, dy) => {
         sprite.x += dx;
         sprite.y += dy;
     },
 
-    // Clear the canvas
     clear: (canvas) => {
         let ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
