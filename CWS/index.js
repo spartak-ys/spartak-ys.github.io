@@ -1,4 +1,4 @@
-import CWS from "./CWS.js"
+import CWS from "./CWS.1.0.1.js"
 
 let heartArt = document.getElementById("heartArt")
 let downlode = document.getElementById("downlode")
@@ -6,8 +6,8 @@ let mainDownlode = document.getElementById("mainDownlode")
 let main = document.getElementById("main")
 let mainMain = document.getElementById("mainMain")
 
-heartArt.width = "50"
-heartArt.height = "50"
+heartArt.width = 50
+heartArt.height = 50
 
 let heart = CWS.createSprite([
     ["",2 , "", 2, ""],
