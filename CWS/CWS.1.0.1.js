@@ -26,8 +26,8 @@ const CWS = {
                 if(value != ""){
                 ctx.fillStyle = COLORS[value] || value;
                 ctx.fillRect(
-                    x * sprite.size + sprite.x,
-                    y * sprite.size + sprite.y,
+                    (x * sprite.size) + sprite.x,
+                    (y * sprite.size) + sprite.y,
                     sprite.size,
                     sprite.size
                 );
