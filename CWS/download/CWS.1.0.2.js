@@ -95,8 +95,8 @@ const CWS = {
             size,
             x,
             y,
-            width: img[0].length*size,
-            height: img.length*size
+            width: sprite.img[0].length*size,
+            height: sprite.img.length*size
         };
     },
 
