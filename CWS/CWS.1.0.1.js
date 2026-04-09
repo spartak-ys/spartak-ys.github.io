@@ -9,7 +9,6 @@ const COLORS = {
     7: "cyan",
     8: "grey",
     9: "rgb(255, 83, 0)",
-    p: "pink"
 };
 
 const CWS = {
