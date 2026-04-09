@@ -106,6 +106,6 @@ aside{
     background: rgb(10, 10, 10);
     border-radius: 6px;
     position: absolute;
-    right: 5px;
+    right: 5px !important;
     top: 180px;
 }
