@@ -8,7 +8,7 @@ const COLORS = {
     6: "purple",
     7: "cyan",
     8: "grey",
-    9: "orange",
+    9: "rgb(255, 83, 0)",
     p: "pink"
 };
 
