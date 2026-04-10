@@ -131,7 +131,7 @@ const CWS = {
 
     arrowControl: (sprite, speed = 5) => {
 
-    document.addEventListener("click", (e)=>{
+    document.addEventListener("keydown", (e)=>{
         if (e.key === "ArrowUp") sprite.y -= speed;
         if (e.key === "ArrowDown") sprite.y += speed;
         if (e.key === "ArrowLeft") sprite.x -= speed;
@@ -142,7 +142,7 @@ const CWS = {
 
     WASDControl: (sprite, speed = 5) => {
 
-    document.addEventListener("click", (e)=>{
+    document.addEventListener("keydown", (e)=>{
         if (e.key === "w") sprite.y -= speed;
         if (e.key === "s") sprite.y += speed;
         if (e.key === "a") sprite.x -= speed;
