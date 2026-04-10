@@ -31,7 +31,7 @@ let heart = CWS.createSprite([
 ], 10)
     CWS.drawSprite(heart, heartArt)
 
-let SSH = CWS.createSprite(CWS.spriteGalery.Rocket, 5, (SSHA.width-65)/2, (SSHA.height-120))
+let SSH = CWS.createSprite(CWS.spriteGalery.rocket, 5, (SSHA.width-65)/2, (SSHA.height-120))
 
 
 function  gameLoop() {
