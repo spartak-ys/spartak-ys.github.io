@@ -136,7 +136,7 @@ const CWS = {
         if (e.key === "ArrowDown") sprite.y += speed;
         if (e.key === "ArrowLeft") sprite.x -= speed;
         if (e.key === "ArrowRight") sprite.x += speed;
-    }) {
+    }) 
 
     }, 
 
