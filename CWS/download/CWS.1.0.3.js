@@ -131,27 +131,23 @@ const CWS = {
 
     arrowControl: (sprite, speed = 5) => {
 
-    document.onkeydown = (e) => {
-
+    document.addEventListener("click", (e)=>{
         if (e.key === "ArrowUp") sprite.y -= speed;
         if (e.key === "ArrowDown") sprite.y += speed;
         if (e.key === "ArrowLeft") sprite.x -= speed;
         if (e.key === "ArrowRight") sprite.x += speed;
-
-    };
+    }) {
 
     }, 
 
     WASDControl: (sprite, speed = 5) => {
 
-    document.onkeydown = (e) => {
-
+    document.addEventListener("click", (e)=>{
         if (e.key === "w") sprite.y -= speed;
         if (e.key === "s") sprite.y += speed;
         if (e.key === "a") sprite.x -= speed;
         if (e.key === "d") sprite.x += speed;
-
-    };
+    }) 
 
     }, 
 
