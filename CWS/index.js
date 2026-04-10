@@ -15,8 +15,9 @@ window.runCode = function () {
     eval(code)
 }
 
-runCode()
-
+if(document.getElementById("code").value.trim() !== ""){
+    runCode()
+}
 heartArt.width = 50
 heartArt.height = 50
 SSHA.width = SSHA.parentElement.clientWidth;
