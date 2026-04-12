@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.svg" type="image/x-icon">
+</head>
+<body>
+    <header><h1>CWS JS libary</h1></header>
+    <nav>
+        <div id="main">main</div>
+        <div id="downlode">download</div>
+        <div id="try">try yourself</div>
+        <div id="api">api</div>
+    </nav>
+    <main>
+        <div id="mainDownlode">
+            Here you can download my libary 
+            <a href="./download/CWS.js">CWS 1.0.0</a>
+            <a href="./download/CWS.1.0.1.js">CWS 1.0.1</a>
+            <a href="./download/CWS.1.0.2.js">CWS 1.0.2</a>
+            <a href="./download/CWS.1.0.3.js">CWS 1.0.3</a>
+            <a href="./download/CWS.1.0.4.js">CWS 1.0.4</a>
+        </div>
+        <div id="mainMain">
+            My libary CWS is for working with canvas and making pixel arts like this 
+            <canvas id="heartArt"></canvas> 
+        </div>
+        <div id="mainTry">
+            <textarea id="code" rows="10" cols="50">
+                let sprite = CWS.createSprite(CWS.spriteGallery.rocket, 5)
+
+                canvas.width = 200
+                canvas.height = 200
+
+                CWS.drawSprite(sprite, canvas)
+            </textarea>
+
+            <br>
+
+            <button onclick="runCode()" id="runBtn">Run</button>
+
+            <br><br>
+
+            <canvas id="canvas" width="200" height="200"></canvas>
+        </div>
+        <div id="mainApi">
+            <div id="apiCodes">
+                <div id="apiColors" class="apiDivs">Colors</div>
+                <div id="apiCreatSprite" class="apiDivs">createSprite()</div>
+                <div id="apiDrawSprite" class="apiDivs">drawSprite()</div>
+                <div id="apiDrawSprites" class="apiDivs">drawSprites()</div>
+                <div id="apiMoveSprite" class="apiDivs">moveSprite()</div>
+                <div id="apiClear" class="apiDivs">clear()</div>
+                <div id="apiIsCollision" class="apiDivs">isCollision()</div>
+                <div id="apiIsInCanvas" class="apiDivs">isInCanvas()</div>
+                <div id="apiSetPosition" class="apiDivs">setPosition()</div>
+                <div id="apiCenterSprite" class="apiDivs">centerSprite()</div>
+                <div id="apiCenterSpriteByX" class="apiDivs">centerSpriteByX()</div>
+                <div id="apiCenterSpriteByY" class="apiDivs">centerSpriteByY()</div>
+                <div id="apiCloneSprite" class="apiDivs">cloneSprite()</div>
+                <div id="apiFollowSprite" class="apiDivs">followSprite()</div>
+                <div id="apiKeepInCanvas" class="apiDivs">keepInCanvas()</div>
+                <div id="apiArrowControl" class="apiDivs">arrowControl()</div>
+                <div id="apiWASDControl" class="apiDivs">WASDControl()</div>
+                <div id="apiSpriteGallery" class="apiDivs">SpriteGallery</div>
+            </div>  
+            <div id="apiLearn">
+                <div id="apiLColors" class="apiLearnDivs">
+                    <p>
+                        In my libary there are colors to draw sprites with it here are colors <br>
+                        0 - white <br>
+                        1 - black <br>
+                        2 - red <br>
+                        3 - green <br>
+                        4 - blue <br>
+                        5 - yellow <br>
+                        6 - purple <br>
+                        7 - cyan <br>
+                        8 - gray <br>
+                        9 - orange <br>
+                        10 - pink <br>
+                        11 - skin color <br>
+                        12 - brown <hr>
+                        if you want to not draw that part you must just write ' ', but there is sprite gallery to chose that sprite that you want
+                    </p>
+                </div>
+                <div id="apiLCreateSprite" class="apiLearnDivs">
+                    <p>
+                        To create sprite you need to write let sprite = CWS.createSprite(img, size, x, y, rotation) <br> <br>
+                        IMG must be an array like this [ <br> 
+                            [' ', 2, ' ', 2, ' '], <br>
+                            [2, 2, 2, 2, 2], <br>
+                            [2, 2, 2, 2, 2], <br>
+                            [' ', 2, 2, 2, ' '], <br>
+                            [' ', ' ', 2, ' ', ' '] <br>
+                        ]. <br> <br>
+                        Size is the every pixel size, its default 20 <br> <br>
+                        x and y are default 0 <br> <br>
+                        rotation is for rotating sprite its default 0 <br><br>
+                        remember that you create sprite, but you don't draw it
+                    </p>
+                </div>
+                <div id="apiLDrawSprite" class="apiLearnDivs">
+                    <p>
+                        To draw the Sprite you need to write CWS.drawSprite(sprite, canvas) <br><br>
+                        You dont give the context in the canvas you just give the canvas. <br><br>
+                        Here is example <br>
+                        let canvas = document.querySelector("canvas") <br>
+                        let sprite = CWS.createSprite([<br>
+                            [' ', 2, ' ', 2, ' '], <br>
+                            [2, 2, 2, 2, 2], <br>
+                            [2, 2, 2, 2, 2], <br>
+                            [' ', 2, 2, 2, ' '], <br>
+                            [' ', ' ', 2, ' ', ' '] <br>
+                        ])
+
+                        CWS.drawSprite(sprite, canvas)
+                    </p>
+                </div>
+                <div id="apiLDrawSprites" class="apiLearnDivs">
+                    To draw some sprites you need to write CWS.drawSprites(sprites, canvas) <br><br>
+                    Sprites must be array like this [sprite1, sprite2, sprite3, ...]
+                </div>
+                <div id="apiLMoveSprite" class="apiLearnDivs">
+                    To move sprite you need to write CWS.moveSprite(sprite, x, y, rotation) <br><br>
+                    x is like margin left, and y like margin top <br><br>
+                    If you want that the sprite move forever like the rocket at the right, you need to use requestAnimationFrame
+                </div>
+                <div id="apiLClear" class="apiLearnDivs">
+                    When you are using request animation frame, you need allways to clean the canvas, to clean canvas you need to use CWS.clear(canvas)
+                </div>
+                <div id="apiLIsCollision" class="apiLearnDivs">
+                    CWS.isCollision(sprite1, sprite2) returns true or false. You can use it like this <br> <br>
+                    if(CWS.isCollision(sprite1, sprite2)){<br>
+                        alert("bam") <br>
+                    }
+                </div>
+                <div id="apiLIsInCanvas" class="apiLearnDivs">
+                    CWS.isInCanvas(sprite, canvas) returns true or false. You can use it like this <br> <br>
+                    if(!CWS.isInCanvas(sprite, canvas)){<br>
+                        alert("you are out of board") <br>
+                    }
+                </div>
+                <div id="apiLSetPosition" class="apiLearnDivs">
+                    CWS.setPosition(sprite, x, y) this is for changing the position <br>
+                    x and y are not adding like moveSprite, they are changing.
+                </div>
+                <div id="apiLCenterSprite" class="apiLearnDivs">
+                    CWS.centerSprite(sprite, canvas) is for placing sprite at the midel of canvas by x and y
+                </div>
+                <div id="apiLCenterSpriteByX" class="apiLearnDivs">
+                    CWS.centerSpriteByX(sprite, canvas) is for placing sprite at the midel of canvas by x
+                </div>
+                <div id="apiLCenterSpriteByY" class="apiLearnDivs">
+                    CWS.centerSpriteByY(sprite, canvas) is for placing sprite at the midel of canvas by y
+                </div>
+                <div id="apiLCloneSprite" class="apiLearnDivs">
+                    CWS.cloneSprite(sprite, x, y, size, rotation) is for cloning sprite, and you can change rotation, size
+                </div>
+                <div id="apiLFollowSprite" class="apiLearnDivs">
+                    CWS.followSprite(enemy, player, enamySpeed) is for sprite1 "enemy" to follow sprite2 "player" <br><br>
+                    The speed is default 1
+                </div>
+                <div id="apiLKeepInCanvas" class="apiLearnDivs">
+                    CWS.keepInCanvas(sprite, canvas) is don't letting the sprite come out of canvas <br><br>
+                    You must write that in request animation frame
+                </div>
+                <div id="apiLArrowControl" class="apiLearnDivs">
+                    CWS.arrowControl(sprite, speed) is for controling sprite with arrow up, arrow down, arrow left and arrow down. <br> <br>
+                    You dont type it in request animation frame, but you must have request animation frame
+                </div>
+                <div id="apiLWASDControl" class="apiLearnDivs">
+                    CWS.WASDControl(sprite, speed) is for controling sprite with w, a, s and d keys. <br> <br>
+                    You dont type it in request animation frame, but you must have request animation frame
+                </div>
+                <div id="apiLSpriteGallery" class="apiLearnDivs">
+                    In SpriteGallery there are lots of sprites, here are they <br>
+                    CWS.spriteGallery.rocket <br>
+                    CWS.spriteGallery.heart <br>
+                    CWS.spriteGallery.cat <br>
+                    CWS.spriteGallery.racingCar <br>
+                    CWS.spriteGallery.car <br>
+                    CWS.spriteGallery.excavator <br>
+                    CWS.spriteGallery.car2 <br>
+                    CWS.spriteGallery.policeCar <br> <br>
+                    now try my libary in try yourself
+                </div>
+            </div>
+        </div>
+    </main>
+    <aside>
+        <canvas id="SSHA"></canvas>
+    </aside>
+    <footer> Made by Spartak Hayrapetyan</footer>
+</body>
+    <script src="index.js" type="module"></script>
+</html>
